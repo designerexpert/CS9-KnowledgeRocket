@@ -1,23 +1,23 @@
 # Table of Contents
 
--   ## [Front End](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md)
+-   ## [Front End](./client/README.md)
 
-    -   ### [Description](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md#description)
+    -   ### [Description](./client/README.md#description)
 
-    -   ### [Getting Started](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md#getting-started)
+    -   ### [Getting Started](./client/README.md#getting-started)
 
-        -   ### [Prerequisites](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md#prerequisites)
+        -   ### [Prerequisites](./client/README.md#prerequisites)
 
-        -   ### [Installation](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md#installation)
+        -   ### [Installation](./client/README.md#installation)
 
-    -   ### [Tests](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/client/README.md#tests)
+    -   ### [Tests](./client/README.md#tests)
 
--   ## [Back End](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/blob/master/server/README.md)
+-   ## [Back End](./server/README.md)
 
-    -   ### [Description](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/tree/master/server#description)
+    -   ### [Description](./server#description)
 
-    -   ### [Prerequisites](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/tree/master/server#prerequisites)
+    -   ### [Prerequisites](./server#prerequisites)
 
-    -   ### [Installation](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/tree/master/server#installation)
+    -   ### [Installation](./server#installation)
 
-    -   ### [Tests](https://github.com/Lambda-School-Labs/CS9-KnowledgeRocket/tree/master/server#tests)
+    -   ### [Tests](./server#tests)
