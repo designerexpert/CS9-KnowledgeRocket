@@ -12,6 +12,13 @@ function mapStateToProps(state) {
 }
 
 class Billing extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+        };
+    }
+
     componentDidMount() {
         // Checks for User to be Authenticated
         // If not authenticated it will send the user to <login/>
@@ -33,13 +40,15 @@ class Billing extends Component {
                             every 10 students. You can have as many students and knowledge rockets
                             as you could ever want.
                         </p>
-                        <h1>Join the Premium Team For Only $9.99</h1>
+                        <h3 className="premTeam">Join the Premium Team For Only $9.99</h3>
                     </Card>
-                    <Card>
-                        <Elements>
-                            <CheckoutForm uid={this.props.state.user.uid} />
-                        </Elements>
-                    </Card>
+                    <Elements>
+                        <CheckoutForm
+                            className="Stripe_Modal"
+                            id={this.props.state.user._id}
+                            uid={this.props.state.user.uid}
+                        />
+                    </Elements>
                 </div>
             </StripeProvider>
         );

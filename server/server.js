@@ -11,8 +11,17 @@ const RocketRouter = require('./rocket/RocketRouter');
 const ResponseRocketRouter = require('./responserocket/ResponseRocketRouter');
 const QuestionRouter = require('./question/QuestionRouter');
 const CohortRouter = require('./cohort/CohortRouter');
+const User = require('./user/User');
 
 const server = express();
+
+const authMiddleware = (req, res, next) => {
+    // TODO: Implement Authentication and Authorization
+    // const {token, uid} = req.headers;
+    // Will require Front-End Caching of Data to save spot
+    // So data is back if user's token expires while they are not done.
+    next();
+};
 
 // Begin code for cross-site allowances -------------------------------------
 server.use(cors());
@@ -20,13 +29,14 @@ server.use(helmet());
 server.use(express.json());
 server.use(express.static('../client/build/'));
 
-server.use('/api/student', StudentRouter);
+// Back End Routes will User authMiddleware
+server.use('/api/student', authMiddleware, StudentRouter);
 server.use('/api/auth/', AuthRouter);
-server.use('/api/rocket', RocketRouter);
-server.use('/api/user', UserRouter);
-server.use('/api/responserocket', ResponseRocketRouter);
-server.use('/api/question', QuestionRouter);
-server.use('/api/cohort', CohortRouter);
+server.use('/api/rocket', authMiddleware, RocketRouter);
+server.use('/api/user', authMiddleware, UserRouter);
+server.use('/api/responserocket', authMiddleware, ResponseRocketRouter);
+server.use('/api/question', authMiddleware, QuestionRouter);
+server.use('/api/cohort', authMiddleware, CohortRouter);
 
 //Stripe Stuff
 server.post('/charge', async (req, res) => {
@@ -38,7 +48,21 @@ server.post('/charge', async (req, res) => {
             source: req.body.token,
         });
         //In here modify users to switch between pro and free
-        res.json({ status });
+        if (status) {
+            console.log(Date.now() + 30 * 24 * 60 * 60 * 1000);
+            User.findByIdAndUpdate(req.body.id, {
+                account: 'monthly',
+                expiration: Date.now() + 30 * 24 * 60 * 60 * 1000,
+            })
+                .then(foundUser => {
+                    res.status(201).json({ status });
+                })
+                .catch(err => {
+                    res.status(500).json(err);
+                });
+        } else {
+            res.status(500).json({ status });
+        }
     } catch (err) {
         res.status(500).json(err);
     }
