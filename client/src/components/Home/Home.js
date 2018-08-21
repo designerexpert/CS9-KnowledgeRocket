@@ -49,40 +49,31 @@ export default class Home extends Component {
 
                     <MidSectionWrapper>
                         <MidColumn>
-                            <MidHeader>Implementation</MidHeader>
                             <MidSection>
+                            <MidHeader>Road To Success</MidHeader>
                                 <MidImg src="/img/amanda-sandlin-10508-unsplash.jpg" />
                                 <MidSectionText>
-                                    Text for mid section here should not be very length but should
-                                    contain enough information about this section.Text for mid
-                                    section here should not be very length but should contain enough
-                                    information about this section.
+                                    Knowledge Rockets are customizable quizzes that you create and are sent to your students on scheduled intervals of 2 days, 2 weeks and 2 months after the initial lecture.  Rocket templates are provided for ease of use.
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>
                         <MidColumn>
-                            <MidHeader>Practice</MidHeader>
+                            
                             <MidSection>
+                            <MidHeader>Practice</MidHeader>
                                 <MidImg src="/img/erik-nielsen-783260-unsplash.jpg" />
                                 <MidSectionText>
-                                    Text for mid section here should not be very length but should
-                                    contain enough information about this section.Text for mid
-                                    section here should not be very length but should contain enough
-                                    information about this section.Text for mid section here should
-                                    not be very length but should contain enough information about
-                                    this section.
+                                Lectures can be sometimes difficult for students to follow. Knowledge Rockets reinforce lecture information and helps students retain it.  Watch students' testing grades improve after using Knowledge Rocket!  
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>
                         <MidColumn>
-                            <MidHeader>Results</MidHeader>
+                            
                             <MidSection>
+                            <MidHeader>Results</MidHeader>
                                 <MidImg src="/img/nasa-63029-unsplash.jpg" />
                                 <MidSectionText>
-                                    Text for mid section here should not be very length but should
-                                    contain enough information about this section.Text for mid
-                                    section here should not be very length but should contain enough
-                                    information about this section.
+                                    Studies show that familiararity of class lecture retention works with reinforcement.  Knowledge Rocket, with its ease of use, simplifies the instuctor's life while improving the student's future.                     
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>
@@ -92,11 +83,11 @@ export default class Home extends Component {
                     <NavButton onClick={this.handleContact}>CONTACT US</NavButton>
                     <NavButton onClick={this.handleAuthRedirect}>SIGN UP</NavButton>
                     <NavButton onClick={this.handleAuthRedirect}>SIGN IN</NavButton>
-                    <p>Follow us on 
+                    <p>Follow us on  
                         <a href="https://twitter.com/KnowledegeR" 
-                        title="Knowledge Rocket on Twitter">TWITTER</a> and 
+                        title="Knowledge Rocket on Twitter"> TWITTER</a> and 
                         <a href="https://www.facebook.com/Knowledge-Rocket-464965013986045"
-                            title="Knowledge Rocket on Facebook">FACEBOOK</a>
+                            title="Knowledge Rocket on Facebook"> FACEBOOK</a>
                     </p>
                 </FooterSection>
             </HomeContainer>

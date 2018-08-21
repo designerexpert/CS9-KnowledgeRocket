@@ -116,7 +116,9 @@ export const MidSectionText = Styled.p`
 
 export const FooterSection = Styled.div`
     display: flex;
+    flex-direction: row;
     justify-content: center;
     width: 100%;
     background-color: black;
+    align-items: center;
 `;
