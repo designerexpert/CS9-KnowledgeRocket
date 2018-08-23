@@ -1,17 +1,79 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { generateBreadCrumbs } from '../../actions';
-import './Cohort.css';
+import styled from 'styled-components';
+// Material Components
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 // Components
 import CohortSettingForm from '../CohortSettingForm/CohortSettingForm';
+import CohortAddStudentsForm from '../CohortAddStudentsForm/CohortAddStudentsForm';
+import CohortStudentList from '../CohortStudentList/CohortStudentList';
+import CohortRocketList from '../CohortRocketList/CohortRocketList';
+// Actions
+import { generateBreadCrumbs, addCohort } from '../../actions';
 
 function mapStateToProps(state) {
     return {
-        state
+        state,
     };
 }
 
+const CohortFormMainContainer = styled(Card)`
+    margin-left: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+`;
+
+const StyledCohortSettingForm = styled(CohortSettingForm)`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 95%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+`;
+
+const StyledCohortAddStudentForm = styled(CohortAddStudentsForm)`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 95%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+`;
+
+const StyledCohortStudentList = styled(CohortStudentList)`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    padding: 20px;
+`;
+
+const StyledCohortRocketList = styled(CohortRocketList)`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 95%;
+    height: 800px;
+    padding: 20px;
+`;
+
 class Cohort extends Component {
+    state = {
+        title: '',
+    };
+
     componentDidMount() {
         // Checks for User to be Authenticated
         // If not authenticated it will send the user to <login/>
@@ -21,15 +83,38 @@ class Cohort extends Component {
         }
         this.props.generateBreadCrumbs(this.props.history.location.pathname);
     }
+
+    handleNewInput = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
+
+    handleCheckBox = e => {
+        this.setState({ [e.target.name]: !e.target.checked });
+    };
+
+    handleAddCohort = () => {
+        const cohort = {
+            title: this.state.title,
+        };
+        this.props.addCohort(cohort, this.props.state.user._id);
+    };
+
     render() {
-        return (
-            <div className="Main_container">
-                <CohortSettingForm />
-            </div>
-        );
+        console.log('WE NEED THIS', this.props.state.user._id);
+        return [
+            <CohortFormMainContainer>
+                <StyledCohortSettingForm handleNewInput={this.handleNewInput} />
+                <StyledCohortAddStudentForm
+                    handleNewInput={this.handleNewInput}
+                    handleCheckBox={this.handleCheckBox}
+                    ccStatus={this.state.ccEmail}
+                />
+                <StyledCohortStudentList />
+                <StyledCohortRocketList />
+                <Button onClick={this.handleAddCohort}>Add this Cohort</Button>
+            </CohortFormMainContainer>,
+        ];
     }
 }
 
-export default connect(
-    mapStateToProps, { generateBreadCrumbs}
-)(Cohort);
+export default connect(mapStateToProps, { generateBreadCrumbs, addCohort })(Cohort);
