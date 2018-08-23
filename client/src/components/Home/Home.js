@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Logo from '../../assets/Logo_BW_SML.svg';
 import {
     HomeContainer,
     HomeCTA,
@@ -31,12 +30,11 @@ export default class Home extends Component {
     };
 
     render() {
-        return (
-            <HomeContainer>
+        return <HomeContainer>
                 <HomeCTA>
                     <HomeNav>
                         <div>
-                            <NavLogo src={Logo} onClick={this.handleHome} />
+                            <NavLogo src="/img/Logo_BW_SML.svg" onClick={this.handleHome} />
                         </div>
                         <div>
                             <NavButton onClick={this.handleAuthRedirect}>Sign Up</NavButton>
@@ -46,14 +44,13 @@ export default class Home extends Component {
                 </HomeCTA>
                 <MidContainer>
                     <HomeHeader>What is a Knowledge Rocket?</HomeHeader>
-
                     <MidSectionWrapper>
                         <MidColumn>
                             <MidSection>
                             <MidHeader>Road To Success</MidHeader>
                                 <MidImg src="/img/amanda-sandlin-10508-unsplash.jpg" />
                                 <MidSectionText>
-                                    Knowledge Rockets are customizable quizzes that you create and are sent to your students on scheduled intervals of 2 days, 2 weeks and 2 months after the initial lecture.  Rocket templates are provided for ease of use.
+                                    Knowledge Rockets are customizable quizzes that you create and sent to your students on scheduled intervals of 2 days, 2 weeks and 2 months after the initial lecture.  Rocket templates are provided for ease of creation.
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>
@@ -71,9 +68,9 @@ export default class Home extends Component {
                             
                             <MidSection>
                             <MidHeader>Results</MidHeader>
-                                <MidImg src="/img/nasa-63029-unsplash.jpg" />
+                                <MidImg src="/img/jack-patrick-307841-unsplash.jpg" />
                                 <MidSectionText>
-                                    Studies show that familiararity of class lecture retention works with reinforcement.  Knowledge Rocket, with its ease of use, simplifies the instuctor's life while improving the student's future.                     
+                                    Studies show that familiarity of class lecture retention works with reinforcement.  Knowledge Rocket, with its ease of use, simplifies the instuctor's life while improving the student's future.                     
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>
@@ -84,13 +81,12 @@ export default class Home extends Component {
                     <NavButton onClick={this.handleAuthRedirect}>SIGN UP</NavButton>
                     <NavButton onClick={this.handleAuthRedirect}>SIGN IN</NavButton>
                     <p>Follow us on  
-                        <a href="https://twitter.com/KnowledegeR" 
+                        <a style={{textDecoration:'none'}} href="https://twitter.com/KnowledegeR" 
                         title="Knowledge Rocket on Twitter"> TWITTER</a> and 
-                        <a href="https://www.facebook.com/Knowledge-Rocket-464965013986045"
+                        <a style={{textDecoration:'none'}}href="https://www.facebook.com/Knowledge-Rocket-464965013986045"
                             title="Knowledge Rocket on Facebook"> FACEBOOK</a>
                     </p>
                 </FooterSection>
-            </HomeContainer>
-        );
+            </HomeContainer>;
     }
 }

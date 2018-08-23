@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 
 export const HomeCTA = Styled.div`
     font-family: 'Roboto';
-    background: url('/img/HomePage_CTA_07.svg') no-repeat center center;
+    background: url('/img/HomePage_CTA_08.svg') no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 1150px;
@@ -90,12 +90,12 @@ export const MidSection = Styled.div`
     flex-direction: column;
     min-width: 300px;
     max-width: 100%;
-    background-color: #DFDFDF;
+    background-color: #3B3535;
     border-radius: .5rem;
-    border: 1px solid #232323;;
+    border: 2px solid #232323;;
     margin: 1rem;
     min-height: 80vh;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.7);
 `;
 
 export const MidImg = Styled.img`
@@ -122,3 +122,5 @@ export const FooterSection = Styled.div`
     background-color: black;
     align-items: center;
 `;
+
+
