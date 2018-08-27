@@ -50,7 +50,7 @@ export default class Home extends Component {
                             <MidHeader>Road To Success</MidHeader>
                                 <MidImg src="/img/amanda-sandlin-10508-unsplash.jpg" />
                                 <MidSectionText>
-                                    Knowledge Rockets are customizable quizzes that you create and sent to your students on scheduled intervals of 2 days, 2 weeks and 2 months after the initial lecture.  Rocket templates are provided for ease of creation.
+                                    Knowledge Rockets are customizable quizzes that you create and send to your students on scheduled intervals of 2 days, 2 weeks and 2 months after the initial lecture.  Rocket templates are provided for ease of creation.
                                 </MidSectionText>
                             </MidSection>
                         </MidColumn>

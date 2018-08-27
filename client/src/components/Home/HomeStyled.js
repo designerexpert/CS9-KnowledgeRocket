@@ -5,8 +5,8 @@ export const HomeCTA = Styled.div`
     font-family: 'Roboto';
     background: url('/img/HomePage_CTA_08.svg') no-repeat center center;
     background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 1150px;
+    // background-repeat: no-repeat;
+    min-height: 600px;
     background-color: black;
     @media(min-width: 2000px) {
         &{
