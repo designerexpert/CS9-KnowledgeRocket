@@ -18,6 +18,9 @@ import {
     APPENDING_ROCKETS,
     APPEND_ROCKETS,
     APPENDING_ROCKETS_FAILED,
+    UPDATING_USER,
+    UPDATE_USER_FAILURE,
+    UPDATE_USER,
 } from '../actions';
 
 const defaultState = {
@@ -82,30 +85,46 @@ export default (state = defaultState, action) => {
             StateCopy.authenticated = true;
             StateCopy.status = UPGRADE_USER;
             return StateCopy;
+        case UPDATING_USER:
+            StateCopy.status = UPDATING_USER;
+            return StateCopy;
+        case UPDATE_USER_FAILURE:
+            StateCopy.status = UPDATE_USER_FAILURE;
+            return StateCopy;
+        case UPDATE_USER:
+            StateCopy = { ...StateCopy, ...action.payload };
+            StateCopy.status = UPDATE_USER;
+            StateCopy.authenticated = true;
+            return StateCopy;
         case ADD_COHORT:
             StateCopy = { ...StateCopy, ...action.payload };
             StateCopy.authenticated = true;
             StateCopy.status = ADD_COHORT;
             return StateCopy;
         case ADD_STUDENT:
-            console.log(`payload ${action.payload}`);
             StateCopy = action.payload;
             StateCopy.authenticated = true;
             StateCopy.status = ADD_STUDENT;
             return StateCopy;
         case DELETE_STUDENT:
-            // StateCopy = { ...StateCopy, ...action.payload };
-            // StateCopy.status = DELETE_STUDENT;
-            // return StateCopy;
+            StateCopy.authenticated = true;
+            StateCopy.status = DELETE_STUDENT;
+            const updatedStudents = [];
+            let targetIdx = 0;
 
-            return Object.assign({}, StateCopy, {
-                user: {
-                    cohorts: state.cohorts.filter((cohort, index) => {
-                        return cohort[index] !== action.payload;
-                    }),
-                },
-                status: DELETE_STUDENT,
+            StateCopy.cohorts.forEach((cohort, index) => {
+                let students = cohort.students;
+                for (let i = 0; i < students.length; i++) {
+                    if (students[i]._id === action.payload._id) {
+                        targetIdx = index;
+                    }
+                    if (students[i]._id !== action.payload._id) {
+                        updatedStudents.push(students[i]);
+                    }
+                }
             });
+            StateCopy.cohorts[targetIdx].students = updatedStudents;
+            return StateCopy;
 
         case ADD_USER_FAILURE:
             StateCopy.status = 'FAILED';
