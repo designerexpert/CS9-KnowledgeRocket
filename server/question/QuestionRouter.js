@@ -35,9 +35,8 @@ function post(req, res) {
 function getid(req, res) {
     const id = req.params.id;
     Question.findById(id)
-        
+
         .then(expected => {
-            console.log('question gotten', expected)
             res.status(200).json(expected);
         })
         .catch(err => {
